@@ -1,0 +1,66 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://bcrypt-aws-lambda.com/json-schema/request.json",
+  "type": "object",
+  "title": "The Request Schema",
+  "required": [
+    "id",
+    "action",
+    "password"
+  ],
+  "properties": {
+    "id": {
+      "$id": "#/properties/uuid",
+      "type": ["string", "number"],
+      "title": "The Id Schema",
+      "minLength": 1,
+      "maxLength": 64,
+      "examples": [
+        "fe296b08f88578239562bea022781df6",
+        10000000
+      ]
+    },
+    "action": {
+      "$id": "#/properties/action",
+      "title": "The Action Schema",
+      "enum": [0, 1]
+      
+    },
+    "rounds": {
+      "$id": "#/properties/rounds",
+      "type": "number",
+      "title": "The Rounds Schema",
+      "minimum": 8,
+      "exclusiveMaximum": 31
+    },
+    "password": {
+      "$id": "#/properties/password",
+      "type": "string",
+      "title": "The Password Schema",
+      "minLength": 1,
+      "examples": [
+        "MyPassW0rd!"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "hash": {
+      "$id": "#/properties/hash",
+      "type": "string",
+      "title": "The Hash Schema",
+      "minLength": 1,
+      "examples": [
+        "$2b$10$x9Uw2MeC0z1XDD4hGtAbM.7HKekqwwocwrvQ/wd6VRZedG1LaNSbu"
+      ],
+      "pattern": "^(.*)$"
+    }
+  },
+  "if": {
+    "properties": {
+      "action": { "const": 1 }
+    }
+  },
+  "then": {
+    "required": ["hash"]
+  }
+}
