@@ -5,7 +5,7 @@
   "engines": {
     "node": ">=12.14"
   },
-  "main": "index.js",
+  "main": "src/index.js",
   "repository": "git@github.com:minayousseif/bcrypt-aws-lambda.git",
   "author": "Mina Yousseif <mina.yousseif@gmail.com>",
   "license": "MIT",

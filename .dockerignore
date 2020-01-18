@@ -1,5 +1,6 @@
 # Dependency directory
 node_modules
+node_modules/*
 
 # README
 *.md
@@ -23,10 +24,6 @@ build/*
 
 tests
 tests/*
-
-#examples
-examples
-examples/*
 
 # Readme
 *.md
