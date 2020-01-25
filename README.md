@@ -12,6 +12,10 @@ The goal here is to use bcrypt as a lambda function instead of running a fleet o
 
 ![bcrypt-as-a-lambda](/readme-assets/bcrypt-as-a-lambda.png)
 
+## Area of improvement
+Since both AWS Application Load Balancers and API Gateway can send and receive binary data. 
+We can use Protocol Buffers with our AWS Lambda instead of JSON. Protocol Buffers can produce significantly smaller payloads At scale, they can make a big difference to performance and bandwidth cost.
+
 ## Initial Lambda Test
 
 Bcrypt is both memory and CPU-intensive, To run it inside a Lambda function we need to find the optimal memory configuration for our AWS Lamba. The amount of memory we allocate to our function AWS Lambda allocates proportional CPU power. Memory options in Lambda impact on overall function performance, including I/O, network and CPU.
@@ -27,7 +31,7 @@ Bcrypt is both memory and CPU-intensive, To run it inside a Lambda function we n
 
 ### Running our Bcrypt Lambda function under different memory options
 
-We ran our Bcrypt Lambda function under different memory allocations using the default salt rounds (10) to conclude that 1536 MB is our optimal memory choice.
+We ran our Bcrypt Lambda function under different memory allocations using the default salt rounds (10) to conclude that `1536 MB` is our optimal memory choice.
 
 | Lambda Memory Size 	| Max Memory 	| Billed Duration 	| Duration 	|
 |--------------------	|------------	|-----------------	|----------	|
