@@ -13,7 +13,7 @@
     "build": "webpack --mode production"
   },
   "dependencies": {
-    "ajv": "^6.10.2",
+    "ajv": "^6.12.3",
     "bcrypt": "^3.0.7",
     "request": "^2.88.0"
   },
